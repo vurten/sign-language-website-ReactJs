@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components"
 import { Link } from "react-router-dom";
+import { Title } from "../styled-elements/Title"
 import Container from "../styled-elements/Container"
 import{ ColumnWCentered, ColumnHWCentered} from "../styled-elements/Flex"
 import '../index.css';
@@ -8,13 +9,6 @@ import Cours from "../img/cours-icn.svg"
 import Quizz from "../img/quizz-icn.svg"
  
 interface Props {}
- 
-const Title = styled.p`
-    font-family: Gilroy;
-    font-size: 60px;
-    color: #1a2563;
-    font-weight: 600;
-`;
 
 const Row = styled.div`
   align-items: stretch;

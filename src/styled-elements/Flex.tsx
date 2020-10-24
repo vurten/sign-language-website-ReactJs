@@ -27,6 +27,15 @@ const ColumnHWCentered = styled.div`
   min-height: 100%;
 `;
 
+const Row = styled.div`
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  min-width: 0;
+`;
+
 const RowHCentered= styled.div`
   align-items: center;
   display: flex;
@@ -36,4 +45,4 @@ const RowHCentered= styled.div`
   min-width: 0;
 `;
 
-export { Column, ColumnWCentered, RowHCentered, ColumnHWCentered };
+export { Column, ColumnWCentered, Row, RowHCentered, ColumnHWCentered };
