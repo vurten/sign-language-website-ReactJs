@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components"
 import { Link } from "react-router-dom";
-// import { ColumnWCentered } from "/styled-element/Column"
+import Container from "../styled-elements/Container"
+import{ ColumnWCentered, ColumnHWCentered} from "../styled-elements/Flex"
 import '../index.css';
 import Cours from "../img/cours-icn.svg"
 import Quizz from "../img/quizz-icn.svg"
@@ -13,31 +14,6 @@ const Title = styled.p`
     font-size: 60px;
     color: #1a2563;
     font-weight: 600;
-`;
-
-const Container = styled.div`
-    display: flex;
-    width: 600px;
-    margin: 0 auto;
-    justify-items: center;
-`;
-
-const Column = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  justify-content: center;
-  min-width: 0;
-`;
-
-const ColumnCentered = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  justify-content: center;
-  min-height: 100%;
 `;
 
 const Row = styled.div`
@@ -71,27 +47,27 @@ const Index: React.FC<Props> = props => {
 return(
 <>
     <Container>
-        <Column>
+        <ColumnWCentered>
             <Title>Sign me on</Title>
             <Row>
                 <StyledLink to="/cours">
                     <Card>
-                        <ColumnCentered>
+                        <ColumnHWCentered>
                             <img src={Cours} height={90}/>
                             <p>Cours</p>
-                        </ColumnCentered>
+                        </ColumnHWCentered>
                     </Card>
                 </StyledLink>
                 <Card className="ml-2">
                     <StyledLink to="/quizz">
-                        <ColumnCentered>
+                        <ColumnHWCentered>
                             <img src={Quizz} height={90}/>
                             <p>Quizz</p>
-                        </ColumnCentered>
+                        </ColumnHWCentered>
                     </StyledLink>
                 </Card>
             </Row>
-    </Column>
+    </ColumnWCentered>
     </Container>
 </>
 )};

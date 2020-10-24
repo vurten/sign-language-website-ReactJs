@@ -1,4 +1,7 @@
 import React from "react";
+import BackButton from "../components/BackButton"
+import Container from "../styled-elements/Container"
+import{ Column} from "../styled-elements/Flex"
  
 interface Props {}
 
@@ -6,7 +9,13 @@ interface Props {}
 const Quizz: React.FC<Props> = props => {
 return(
     <>
-    <p>Section de quizz</p>
+    <Container>
+            <Column>
+                <BackButton />
+                <p>Section de quizz</p>
+            </Column>
+        </Container>
+    <BackButton />
     </>
 )};
  
