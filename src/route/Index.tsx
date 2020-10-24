@@ -10,6 +10,11 @@ import Quizz from "../img/quizz-icn.svg"
  
 interface Props {}
 
+const Background = styled.div`
+    height: 100vh;
+    background-color: #edfafa;
+`;
+
 const Row = styled.div`
   align-items: stretch;
   display: flex;
@@ -22,6 +27,7 @@ const Row = styled.div`
 const Index: React.FC<Props> = props => {
 return(
 <>
+<Background>
     <Container>
         <ColumnWCentered>
             <Title>Sign me on</Title>
@@ -30,7 +36,7 @@ return(
                 <Card img={Quizz} link="/quizz" text="Quizz" className="ml-2"/>
             </Row>
     </ColumnWCentered>
-    </Container>
+    </Container></Background>
 </>
 )};
  

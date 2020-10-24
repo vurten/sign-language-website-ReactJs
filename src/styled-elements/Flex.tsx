@@ -41,8 +41,17 @@ const RowHCentered= styled.div`
   display: flex;
   flex-direction: row;
   flex: 1 1 auto;
+  justify-content: flex-start;
+  min-width: 0;
+`;
+
+const RowHWCentered= styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
   justify-content: center;
   min-width: 0;
 `;
 
-export { Column, ColumnWCentered, Row, RowHCentered, ColumnHWCentered };
+export { Column, ColumnWCentered, Row, RowHWCentered, ColumnHWCentered };

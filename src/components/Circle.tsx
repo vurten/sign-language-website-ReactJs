@@ -13,6 +13,7 @@ const CircleSection = styled.div`
     height: 50px;
     width: 50px;
     border-radius: 100px;
+    background-color:white;
 
     :hover {
         background-color: #fae0af;

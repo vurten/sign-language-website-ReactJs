@@ -4,33 +4,40 @@ import Circle from "../components/Circle"
 import Container from "../styled-elements/Container"
 import{ Column} from "../styled-elements/Flex"
 import { Subtitle } from "../styled-elements/Title"
-import{ ColumnWCentered ,ColumnHWCentered, Row} from "../styled-elements/Flex"
+import{ ColumnWCentered , Row} from "../styled-elements/Flex"
 import styled from "styled-components"
 
 interface Props {}
 
+const Background = styled.div`
+height: 100vh;
+background-color: #edfafa;
+`;
+
 const Cours: React.FC<Props> = props => {
+
 return(
     <>
+  
+    <Background>
+        <Row>
+            <Column className="pl-3">  
+                <BackButton />
+            </Column>
+        </Row>
         <Container>
-            <Row>
-                <Column>  
-                    <BackButton />
-                </Column>
-            </Row>
-            <Row>
-                <ColumnWCentered>
-                    <Subtitle className="mt-3">Sign me on</Subtitle>
-                    <p>Section de cours</p>
-                </ColumnWCentered>
-            </Row>
-            <Row>
-                <Column>
-                    <Circle link="random" text="1"/>
-                </Column>
-            </Row>
-            
+        <Row>
+            <ColumnWCentered>
+                <Subtitle className="mt-3">Section de cours</Subtitle>
+            </ColumnWCentered>
+        </Row>
+        <Row>
+            <Column>
+                <Circle link="random" text="1"/>
+            </Column>
+        </Row>
         </Container>
+    </Background>
     </>
 )};
  
