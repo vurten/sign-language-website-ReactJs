@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components"
-import { Link } from "react-router-dom";
 import { Title } from "../styled-elements/Title"
 import Container from "../styled-elements/Container"
+import Card from "../components/Card"
 import{ ColumnWCentered, ColumnHWCentered} from "../styled-elements/Flex"
 import '../index.css';
 import Cours from "../img/cours-icn.svg"
@@ -19,24 +19,6 @@ const Row = styled.div`
   min-width: 0;
 `;
 
-const Card = styled.div`
-    border: 2px solid #dfb458;
-    height: 200px;
-    width: 200px;
-    border-radius: 12px;
-
-    :hover {
-        background-color: #fae0af;
-    }
-`;
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: #1a2563;
-    font-family: Gilroy;
-    font-weight: 600;
-`;
-
 const Index: React.FC<Props> = props => {
 return(
 <>
@@ -44,22 +26,8 @@ return(
         <ColumnWCentered>
             <Title>Sign me on</Title>
             <Row>
-                <StyledLink to="/cours">
-                    <Card>
-                        <ColumnHWCentered>
-                            <img src={Cours} height={90}/>
-                            <p>Cours</p>
-                        </ColumnHWCentered>
-                    </Card>
-                </StyledLink>
-                <Card className="ml-2">
-                    <StyledLink to="/quizz">
-                        <ColumnHWCentered>
-                            <img src={Quizz} height={90}/>
-                            <p>Quizz</p>
-                        </ColumnHWCentered>
-                    </StyledLink>
-                </Card>
+                <Card img={Cours} link="/cours" text="Cours"/>
+                <Card img={Quizz} link="/quizz" text="Quizz" className="ml-2"/>
             </Row>
     </ColumnWCentered>
     </Container>
