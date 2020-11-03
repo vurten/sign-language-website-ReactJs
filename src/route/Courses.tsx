@@ -7,24 +7,23 @@ import{ Column} from "../styled-elements/Flex"
 import { Subtitle } from "../styled-elements/Title"
 import{ ColumnWCentered , Row} from "../styled-elements/Flex"
 import styled from "styled-components"
-import { useParams } from "react-router-dom";
-import { capitalizeFirstLetter } from "../utilities/capitalize";
 import { Course } from "../types/types";
-import Background from "../styled-elements/Background";
 
 interface Props {}
 
+const Background = styled.div`
+height: 100vh;
+background-color: #edfafa;
+`;
+
 const Cours: React.FC<Props> = props => {
 
-const id = window.location.pathname.split("/")[2]
 
-const [cours, setCours] = useState<Course>()
+const [courses, setCourses] = useState<Course[]>([])
 
 useEffect(()=> {
-        fetch(`http://localhost:8080/course/${id}`).then(res => res.json()).then( res => setCours(res))
+        fetch("http://localhost:8080/courses").then(res => res.json()).then( res => setCourses(res))
 }, [])
-
-console.log(cours)
 
 return(
     <>
@@ -32,14 +31,24 @@ return(
     <Background>
         <Row>
             <Column className="pl-3">  
-                <BackButton url="/courses" text="Retour aux cours"/>
+                <BackButton url="/" text="Retour au sommaire"/>
             </Column>
         </Row>
         <Container>
         <Row>
             <ColumnWCentered>
-                <Subtitle className="mt-3">{capitalizeFirstLetter(cours?.title ? cours?.title : "")}</Subtitle>
+                <Subtitle className="mt-3">Section de cours</Subtitle>
             </ColumnWCentered>
+        </Row>
+        <Row>
+            {courses.map( (course, index) => (
+
+            <Column key={index}>
+                <InvisibleLink to={`/course/${course.number}`}>
+                    <Circle link="random" text={course.number}/>
+                </InvisibleLink>
+            </Column>
+            ))}
         </Row>
         </Container>
     </Background>

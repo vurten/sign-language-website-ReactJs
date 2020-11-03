@@ -1,17 +1,19 @@
 import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
-import Cours from './route/Cours';
-import Quizz from './route/Quizz';
+import Courses from './route/Courses';
+import Exams from './route/Exams';
 import Index from './route/Index';
+import Cours from './route/Cours';
 
 const App: React.FC = () => {
   return (
     <div >
       <Router>
         <Switch>
-          <Route path="/cours" component={Cours}/>
-          <Route path="/quizz" component={Quizz}/>
+        <Route path="/course/:id" component={Cours}/>
+          <Route path="/courses" component={Courses}/>
+          <Route path="/exams" component={Exams}/>
           <Route path="/" component={Index}/>
         </Switch>
       </Router>

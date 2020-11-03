@@ -7,13 +7,9 @@ import{ ColumnWCentered, ColumnHWCentered} from "../styled-elements/Flex"
 import '../index.css';
 import Cours from "../img/cours-icn.svg"
 import Quizz from "../img/quizz-icn.svg"
+import Background from "../styled-elements/Background";
  
 interface Props {}
-
-const Background = styled.div`
-    height: 100vh;
-    background-color: #edfafa;
-`;
 
 const Row = styled.div`
   align-items: stretch;
@@ -25,6 +21,7 @@ const Row = styled.div`
 `;
 
 const Index: React.FC<Props> = props => {
+
 return(
 <>
 <Background>
@@ -32,8 +29,8 @@ return(
         <ColumnWCentered>
             <Title>Sign me on</Title>
             <Row>
-                <Card img={Cours} link="/cours" text="Cours"/>
-                <Card img={Quizz} link="/quizz" text="Quizz" className="ml-2"/>
+                <Card img={Cours} link="/courses" text="Cours" />
+                <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
             </Row>
     </ColumnWCentered>
     </Container></Background>

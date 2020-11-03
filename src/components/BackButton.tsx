@@ -4,7 +4,10 @@ import styled from "styled-components"
 import Arrow from "../img/arrow-icn.svg"
 import{ RowHWCentered } from "../styled-elements/Flex"
 
-interface Props {}
+interface Props {
+    url: string;
+    text: string;
+}
 
 const Back = styled(Link)`
 text-decoration: none;
@@ -16,7 +19,7 @@ font-weight: 600;
 }
 `;
 
-const BackButton: React.FC<Props> = props => <><Back to="/" className= "mt-3 mb-2"><RowHWCentered><img src={Arrow}/> Retour au sommaire</RowHWCentered></Back></>;
+const BackButton: React.FC<Props> = ({url, text, ...props}) => <><Back to={url} className= "mt-3 mb-2"><RowHWCentered><img src={Arrow}/> {text}</RowHWCentered></Back></>;
 
  
 
