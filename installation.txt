@@ -1,0 +1,22 @@
+
+dans le dossier client : npx create-react-app ./
+
+dans le dossier server : npm init (puis faire ok pour le tt)
+
+dans le dossier server : creer un fichier index.js
+
+dans le dossier server : npm install express body-parser mysql
+
+dans le dossier server : npm install nodemon
+
+dans le dossier server : node index.js   (pour voir le backend marcher dans le port 3001)
+
+telecharger mysq workbench : suivre les instructions ici https://linuxhint.com/installing_mysql_workbench_ubuntu/
+
+dans le dossier client : npm i axios
+
+ 
+
+
+
+
