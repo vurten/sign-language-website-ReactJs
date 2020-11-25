@@ -29,7 +29,7 @@ return(
         <ColumnWCentered>
             <Title>Sign me on</Title>
             <Row>
-                <Card img={Cours} link="/courses" text="Cours" />
+                <Card img={Cours} link="/cours" text="Cours" />
                 <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
             </Row>
     </ColumnWCentered>
