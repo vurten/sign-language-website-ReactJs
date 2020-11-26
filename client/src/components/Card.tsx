@@ -17,6 +17,7 @@ const CardSection = styled.div`
     width: 200px;
     border-radius: 12px;
     background-color:white;
+    color: #1a2563;
 
     :hover {
         background-color: #fae0af;

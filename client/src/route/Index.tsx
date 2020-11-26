@@ -7,7 +7,9 @@ import{ ColumnWCentered, ColumnHWCentered} from "../styled-elements/Flex"
 import '../index.css';
 import Cours from "../img/cours-icn.svg"
 import Quizz from "../img/quizz-icn.svg"
-import Background from "../styled-elements/Background";
+import Background from "../styled-elements/Background"
+import Settings from "../img/settings.svg"
+import '../App.css';
  
 interface Props {}
 
@@ -29,8 +31,9 @@ return(
         <ColumnWCentered>
             <Title>Sign me on</Title>
             <Row>
-                <Card img={Cours} link="/cours" text="Cours" />
+                <Card img={Cours} link="/cours" text="Cours" className="ml-2"/>
                 <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
+                <Card img={Settings} link="/settings" text="Settings" className="ml-2"/>
             </Row>
     </ColumnWCentered>
     </Container></Background>

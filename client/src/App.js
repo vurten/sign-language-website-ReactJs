@@ -10,6 +10,7 @@ import CoursChiffres from './route/CoursChiffres';
 import CoursAnimaux from './route/CoursAnimaux';
 import QuizChiffres from './route/QuizNombres';
 import QuizAnimaux from './route/QuizAnimaux';
+import Settings from './route/Settings';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/coursAnimaux" component={CoursAnimaux}/>
           <Route path="/quizChiffres" component={QuizChiffres}/>
           <Route path="/quizAnimaux" component={QuizAnimaux}/>
+          <Route path="/settings" component={Settings}/>
           <Route path="/" component={Index}/>
 
         </Switch>
