@@ -12,16 +12,25 @@ const Settings = props => {
 
     const [coursDescription, setCoursDescription] = useState('');
     const [coursVideo, setCoursVideo] = useState('');
+    const [coursAlphabetList, setCoursAlphabetList] = useState([]);
+
+    useEffect(() =>{
+        Axios.get('http://localhost:3001/api/get').then((response)=>{
+            setCoursAlphabetList(response.data);
+        });
+    }, []);
 
     const enregistrerBd = () =>{
         Axios.post('http://localhost:3001/api/insert', {
-            coursDescription: coursDescription, 
+            coursDescription: coursDescription,
             coursVideo: coursVideo
-        }).then(()=> {
-            alert('Successful insert');
-        }
-
-        )
+        });
+        
+        
+        setCoursAlphabetList([...coursAlphabetList, 
+                {coursAlphabetText: coursDescription, coursAlphabImg: coursVideo},
+            ]);
+        
     };
 
     return (
@@ -38,15 +47,20 @@ const Settings = props => {
             </ColumnWCentered>
             <Row>           
                 <div className="form">
-                    <label className="descri">Description</label>
+                    <label className="descri">Titre</label>
                     <input type="text" name="coursDescription" onChange={(e)=>{
                         setCoursDescription(e.target.value);
                     }}/>
                     <label className="vid">Video / Image</label>
-                    <input type="text" name="coursVideo" onChange={(e)=>{
+                    <input type="file" name="coursVideo" onChange={(e)=>{
                         setCoursVideo(e.target.value);
                     }}/>
                     <button onClick={enregistrerBd}>Enregistrer</button>
+                    {coursAlphabetList.map((val)=>{
+                        return <h1>Titre du cours alphabet: {val.coursAlphabetText} | Chemin Video: {val.coursAlphabImg}</h1>
+                    })
+                    }
+                    
                 </div>        
             </Row>
             </Container>

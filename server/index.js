@@ -17,6 +17,13 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.get('/api/get',(req,res)=>{
+    const sqlSelect = "SELECT * FROM coursAlphabet";
+    db.query(sqlSelect,(err, result)=> {
+        res.send(result);
+    });
+});
+
 
 
 app.post("/api/insert", (req,res) => {
@@ -26,7 +33,7 @@ app.post("/api/insert", (req,res) => {
 
     const sqlInsert = "INSERT INTO coursAlphabet (coursAlphabetText, coursAlphabImg) VALUES (?,?)";
     db.query(sqlInsert,[coursDescription,coursVideo], (err, result)=> {
-        console.log(err);
+        console.log(result);
     });
 });
 
