@@ -37,6 +37,29 @@ app.post("/api/insert", (req,res) => {
     });
 });
 
+app.delete("/api/delete/:coursDescription", (req,res) => {
+
+    const titreCours = req.params.coursDescription;
+
+    const sqlDelete = "DELETE FROM coursAlphabet WHERE coursAlphabetText = ?";
+
+    db.query(sqlDelete,titreCours, (err, result)=> {
+        if(err) console.log(err);
+    });
+});
+
+app.put("/api/update", (req,res) => {
+
+    const titreCours = req.body.coursDescription;
+    const video = req.body.coursVideo;
+
+    const sqlUpdate = "UPDATE coursAlphabet SET coursAlphabImg = ? WHERE coursAlphabetText = ?";
+
+    db.query(sqlUpdate,[video, titreCours], (err, result)=> {
+        if(err) console.log(err);
+    });
+});
+
 app.listen(3001, () => {
     console.log("running on port 3001");
 });

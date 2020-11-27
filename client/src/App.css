@@ -77,3 +77,31 @@
         margin-top: 20px;
         margin-left: -150px;
   }
+
+  .db{
+      width: 600px;
+      height: 200px;
+      border: 2px solid black;
+      border-radius: 15px;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin-left: -100px;
+  }
+
+  #bt-modifier{
+      width: 120px;
+      margin-left: 470px;
+      margin-top: -97px;
+  }
+
+  #bt-supprimer{
+    width: 120px;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+#ajouter{
+    width: 110px;
+}

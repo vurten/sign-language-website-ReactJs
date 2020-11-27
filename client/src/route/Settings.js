@@ -13,6 +13,7 @@ const Settings = props => {
     const [coursDescription, setCoursDescription] = useState('');
     const [coursVideo, setCoursVideo] = useState('');
     const [coursAlphabetList, setCoursAlphabetList] = useState([]);
+    const [nouvelleVideo, setNouvelleVideo] = useState('');
 
     useEffect(() =>{
         Axios.get('http://localhost:3001/api/get').then((response)=>{
@@ -20,7 +21,7 @@ const Settings = props => {
         });
     }, []);
 
-    const enregistrerBd = () =>{
+    const ajouterDansBd = () =>{
         Axios.post('http://localhost:3001/api/insert', {
             coursDescription: coursDescription,
             coursVideo: coursVideo
@@ -31,6 +32,19 @@ const Settings = props => {
                 {coursAlphabetText: coursDescription, coursAlphabImg: coursVideo},
             ]);
         
+    };
+
+    const supprimerDansBd = (cours) =>{
+        Axios.delete(`http://localhost:3001/api/delete/${cours}`);
+    };
+
+    const modifierDansBd = (cours) =>{
+        Axios.put('http://localhost:3001/api/update', {
+            coursDescription: cours,
+            coursVideo: nouvelleVideo,
+        });
+
+        setNouvelleVideo("");
     };
 
     return (
@@ -55,9 +69,19 @@ const Settings = props => {
                     <input type="file" name="coursVideo" onChange={(e)=>{
                         setCoursVideo(e.target.value);
                     }}/>
-                    <button onClick={enregistrerBd}>Enregistrer</button>
+                    <button id="ajouter" onClick={ajouterDansBd}>Ajouter</button>
                     {coursAlphabetList.map((val)=>{
-                        return <h1>Titre du cours alphabet: {val.coursAlphabetText} | Chemin Video: {val.coursAlphabImg}</h1>
+                        return (
+                        <div className="db">
+                           <h3> Titre du cours alphabet: {val.coursAlphabetText}</h3>
+                           <p>Chemin Video: {val.coursAlphabImg}</p>
+                           <button id="bt-supprimer" onClick={() => {supprimerDansBd(val.coursAlphabetText)}}>Supprimer</button>
+                           <input type="file" id="modifier" onChange={(e) => {
+                                setNouvelleVideo(e.target.value);
+                                }}/>
+                           <button id="bt-modifier" onClick={()=> {modifierDansBd(val.coursAlphabetText)}}>Modifier</button>
+                        </div>
+                        );
                     })
                     }
                     
