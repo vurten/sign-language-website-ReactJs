@@ -33,7 +33,7 @@ return(
             <Row>
                 <Card img={Cours} link="/cours" text="Cours" className="ml-2"/>
                 <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
-                <Card img={Settings} link="/settings" text="Settings" className="ml-2"/>
+                <Card img={Settings} link="/settings" text="Modifier Cours" className="ml-2"/>
             </Row>
     </ColumnWCentered>
     </Container></Background>

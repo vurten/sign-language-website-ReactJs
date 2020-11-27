@@ -57,7 +57,7 @@ const Settings = props => {
             </Row>
             <Container>
             <ColumnWCentered>
-                <Subtitle className="mt-3">Section Settings</Subtitle>
+                <Subtitle className="mt-3">Section modification de cours</Subtitle>
             </ColumnWCentered>
             <Row>           
                 <div className="form">
