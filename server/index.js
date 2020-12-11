@@ -74,6 +74,30 @@ app.post("/register", (req,res) => {
     );
 });
 
+app.post("/login", (req,res)=>{
+
+    const email = req.body.mail;
+    const password = req.body.password;
+
+    db.query("SELECT * FROM users WHERE useremail = ? AND userpassword = ?",
+        [email, password], (err, result)=>{
+
+            if(err){
+                res.send({err: err})
+            }
+            
+            if (result.length > 0){
+                    res.send(result)
+            }else{
+                    res.send({message: "La combinaison mot de passe / email est incorrecte."})
+            }
+            
+        
+        }
+    );
+
+});
+
 app.listen(3001, () => {
     console.log("running on port 3001");
 });

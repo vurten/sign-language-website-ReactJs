@@ -15,8 +15,18 @@ const Connexion = props => {
     const [passwordReg, setPasswordReg] = useState('');
     const [profileType, setProfileType] = useState('');
 
+    const [userMailCheck, setUserMailCheck] = useState('');
+    const [passwordCheck, setPasswordCheck] = useState('');
+
     const register = ()=>{
         Axios.post('http://localhost:3001/register', {mail: userMail, password: passwordReg, profile: profileType,
+        }).then((response)=> {
+            console.log(response);
+        });
+    };
+
+    const login = ()=>{
+        Axios.post('http://localhost:3001/login', {mail: userMailCheck, password: passwordCheck,
         }).then((response)=> {
             console.log(response);
         });
@@ -56,10 +66,14 @@ const Connexion = props => {
                 <div className="login">
                     <br /><br /><br /><br /><br /><h1 id="connecter">Se connecter</h1>
                     <label>adresse email    </label>
-                    <input type="text"/><br /><br />
+                    <input type="text" onChange={(e)=>{
+                        setUserMailCheck(e.target.value);
+                        }}/><br /><br />
                     <label>mot de passe </label>
-                    <input type="text"/>
-                    <button id="but-log"> Login </button>
+                    <input type="text" onChange={(e)=>{
+                        setPasswordCheck(e.target.value);
+                        }}/>
+                    <button id="but-log" onClick={login}> Login </button>
                 </div>          
                       
             </Row>
