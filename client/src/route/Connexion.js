@@ -18,6 +18,8 @@ const Connexion = props => {
     const [userMailCheck, setUserMailCheck] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
 
+    const [loginMessage, setLoginMessage] = useState('');
+
     const register = ()=>{
         Axios.post('http://localhost:3001/register', {mail: userMail, password: passwordReg, profile: profileType,
         }).then((response)=> {
@@ -28,7 +30,12 @@ const Connexion = props => {
     const login = ()=>{
         Axios.post('http://localhost:3001/login', {mail: userMailCheck, password: passwordCheck,
         }).then((response)=> {
-            console.log(response);
+
+            if(response.data.message){
+                setLoginMessage(response.data.message);
+            }else {
+                window.location.href = "http://localhost:3000/settings";
+            }
         });
     };
 
@@ -74,7 +81,10 @@ const Connexion = props => {
                         setPasswordCheck(e.target.value);
                         }}/>
                     <button id="but-log" onClick={login}> Login </button>
-                </div>          
+                </div> 
+                <div className="message-err">
+                    <h1>{loginMessage}</h1>  
+                </div>       
                       
             </Row>
             </Container>
