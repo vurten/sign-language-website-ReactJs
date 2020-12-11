@@ -9,6 +9,7 @@ import Cours from "../img/cours-icn.svg"
 import Quizz from "../img/quizz-icn.svg"
 import Background from "../styled-elements/Background"
 import Settings from "../img/settings.svg"
+import Login from "../img/login.png"
 import '../App.css';
  
 interface Props {}
@@ -34,6 +35,7 @@ return(
                 <Card img={Cours} link="/cours" text="Cours" className="ml-2"/>
                 <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
                 <Card img={Settings} link="/settings" text="Modifier Cours" className="ml-2"/>
+                <Card img={Login} link="/login" text="Connexion" className="ml-2"/>
             </Row>
     </ColumnWCentered>
     </Container></Background>

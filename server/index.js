@@ -60,6 +60,22 @@ app.put("/api/update", (req,res) => {
     });
 });
 
+app.post("/register", (req,res) => {
+
+    const email = req.body.mail;
+    const password = req.body.password;
+    const profileType = req.body.profile;
+
+    db.query("INSERT INTO users (useremail, userpassword, usertype) VALUES (?,?,?)",
+        [email, password, profileType], (err, result)=>{
+            console.log(err);
+        
+        }
+    );
+});
+
 app.listen(3001, () => {
     console.log("running on port 3001");
 });
+
+

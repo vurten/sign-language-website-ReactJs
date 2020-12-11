@@ -105,3 +105,44 @@
 #ajouter{
     width: 110px;
 }
+
+.registration{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.login{
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 100px;
+}
+
+#creation{
+    position: absolute;
+    margin-left: 80px;
+    margin-top: -75px;
+    width: 500px;
+}
+
+#connecter{
+    position: absolute;
+    margin-left: 100px;
+    margin-top: -50px;
+    width: 500px;
+}
+
+#but-log{
+    position: absolute;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 190px;
+}
+
+#but-reg{
+    position: absolute;
+    width: 120px;
+    margin-top: 10px;
+    margin-left: 170px;
+
+}

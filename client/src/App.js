@@ -11,6 +11,7 @@ import CoursAnimaux from './route/CoursAnimaux';
 import QuizChiffres from './route/QuizNombres';
 import QuizAnimaux from './route/QuizAnimaux';
 import Settings from './route/Settings';
+import Login from './route/Connexion';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/quizChiffres" component={QuizChiffres}/>
           <Route path="/quizAnimaux" component={QuizAnimaux}/>
           <Route path="/settings" component={Settings}/>
+          <Route path="/login" component={Login}/>
           <Route path="/" component={Index}/>
 
         </Switch>
