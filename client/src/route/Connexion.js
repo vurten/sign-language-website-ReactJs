@@ -17,6 +17,7 @@ const Connexion = props => {
 
     const [userMailCheck, setUserMailCheck] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
+    const [type, setType] = useState('');
 
     const [loginMessage, setLoginMessage] = useState('');
 
@@ -29,12 +30,16 @@ const Connexion = props => {
 
     const login = ()=>{
         Axios.post('http://localhost:3001/login', {mail: userMailCheck, password: passwordCheck,
-        }).then((response)=> {
+            profile: type}).then((response)=> {
 
             if(response.data.message){
                 setLoginMessage(response.data.message);
             }else {
-                window.location.href = "http://localhost:3000/settings";
+                if(type == "professeur"){
+                    window.location.href = "http://localhost:3000/settings";
+                }else{
+                    window.location.href = "http://localhost:3000/";
+                }
             }
         });
     };
@@ -79,6 +84,10 @@ const Connexion = props => {
                     <label>mot de passe </label>
                     <input type="text" onChange={(e)=>{
                         setPasswordCheck(e.target.value);
+                        }}/><br /><br />
+                    <label>Type du profil </label>
+                    <input type="text" onChange={(e)=>{
+                        setType(e.target.value);
                         }}/>
                     <button id="but-log" onClick={login}> Login </button>
                 </div> 

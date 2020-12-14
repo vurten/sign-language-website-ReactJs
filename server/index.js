@@ -78,9 +78,10 @@ app.post("/login", (req,res)=>{
 
     const email = req.body.mail;
     const password = req.body.password;
+    const profileType = req.body.profile;
 
-    db.query("SELECT * FROM users WHERE useremail = ? AND userpassword = ?",
-        [email, password], (err, result)=>{
+    db.query("SELECT * FROM users WHERE useremail = ? AND userpassword = ? AND usertype = ?",
+        [email, password, profileType], (err, result)=>{
 
             if(err){
                 res.send({err: err})
@@ -101,5 +102,3 @@ app.post("/login", (req,res)=>{
 app.listen(3001, () => {
     console.log("running on port 3001");
 });
-
-
