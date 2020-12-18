@@ -36,9 +36,12 @@ return(
                 <Card img={Quizz} link="/exams" text="Examens" className="ml-2"/>
                 
                 <Card img={Login} link="/login" text="Connexion" className="ml-2"/>
+                
             </Row>
     </ColumnWCentered>
-    </Container></Background>
+    </Container>
+    </Background>
+    <button className="bt-logout2" onClick={()=> {window.location.href = "http://localhost:3000/login";}}>Logout</button>
 </>
 )};
  

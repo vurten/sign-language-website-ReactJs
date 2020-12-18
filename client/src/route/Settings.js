@@ -80,7 +80,7 @@ const Settings = props => {
                                 setNouvelleVideo(e.target.value);
                                 }}/>
                            <button id="bt-modifier" onClick={()=> {modifierDansBd(val.coursAlphabetText)}}>Modifier</button>
-                           <button id="bt-logout1" onClick={()=> {window.location.href = "http://localhost:3000/";}}>Logout</button>
+                           <button id="bt-logout1" onClick={()=> {window.location.href = "http://localhost:3000/login";}}>Logout</button>
                         </div>
                         );
                     })
